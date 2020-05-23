@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2177767246447431224}
   - component: {fileID: 2177767246447431225}
   - component: {fileID: 5208129438603841667}
+  - component: {fileID: 7593631152412434309}
   m_Layer: 0
   m_Name: _TEAM
   m_TagString: Untagged
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSelected: 0
   head: {fileID: 531120150876055997}
+  tail: {fileID: 531120150876055997}
   speed: 10
 --- !u!54 &5208129438603841667
 Rigidbody:
@@ -64,6 +66,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7593631152412434309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2177767246447431227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef0ccd13e543c94db66acd528d9d0a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connector: {fileID: 4702979614624587295}
+  isDragging: 0
+  team: {fileID: 2177767246447431225}
 --- !u!65 &4339096356432813603
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -89,6 +106,11 @@ PrefabInstance:
       propertyPath: selection
       value: 
       objectReference: {fileID: 4437786440243075253}
+    - target: {fileID: 1830169210664614540, guid: fb5ab010a8250124b9ec01a5506f9e43,
+        type: 3}
+      propertyPath: agent
+      value: 
+      objectReference: {fileID: 3245650491252923447}
     - target: {fileID: 3689053003155918596, guid: fb5ab010a8250124b9ec01a5506f9e43,
         type: 3}
       propertyPath: m_Name
@@ -163,6 +185,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2177767246691144497}
   m_PrefabAsset: {fileID: 0}
+--- !u!195 &3245650491252923447 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 3689053003155918598, guid: fb5ab010a8250124b9ec01a5506f9e43,
+    type: 3}
+  m_PrefabInstance: {fileID: 2177767246691144497}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &531120150876055997 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1830169210664614540, guid: fb5ab010a8250124b9ec01a5506f9e43,
@@ -178,6 +206,12 @@ MonoBehaviour:
 --- !u!95 &4437786440243075253 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2571226102843984772, guid: fb5ab010a8250124b9ec01a5506f9e43,
+    type: 3}
+  m_PrefabInstance: {fileID: 2177767246691144497}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &4702979614624587295 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6880564335859174702, guid: fb5ab010a8250124b9ec01a5506f9e43,
     type: 3}
   m_PrefabInstance: {fileID: 2177767246691144497}
   m_PrefabAsset: {fileID: 0}

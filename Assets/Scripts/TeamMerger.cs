@@ -3,20 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class TeamMerger : MonoBehaviour {
-  public static TeamMerger requester;
-
   public SpriteRenderer connector;
   public Plane floor;
   public bool isDragging = false;
+  public Team team;
 
   void Start () {
-    requester = null;
     floor = new Plane(-Vector3.forward, connector.transform.position);
   }
 
   void OnMouseDown () {
     isDragging = true;
-    connector.gameObject.SetActive(true);
+    connector.transform.parent.gameObject.SetActive(true);
   }
 
   void Update () {
@@ -31,18 +29,34 @@ public class TeamMerger : MonoBehaviour {
         Quaternion.LookRotation(relativeHitPoint, -Vector3.forward);
     }
 
-    if (!Input.GetMouseButton(0)) {
+    if (!Input.GetMouseButton(0) && isDragging) {
       isDragging = false;
       StopConnecting();
     }
   }
 
-  void OnMouseUp () {
-    if (requester) {
+  void OnDestroy () {
+    Destroy(team);
+  }
+
+  public void MergeConsume (TeamMerger toConsume) {
+    toConsume.team.head.Follow(team.tail);
+    team.tail = toConsume.team.tail;
+    foreach (Unit unit in toConsume.GetComponentsInChildren<Unit>()) {
+      unit.transform.parent = transform;
     }
+    team.Select();
+    Destroy(toConsume);
   }
 
   public void StopConnecting () {
-    connector.gameObject.SetActive(false);
+    connector.transform.parent.gameObject.SetActive(false);
+    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    RaycastHit hit;
+    if (Physics.Raycast(ray, out hit)) {
+      TeamMerger merger = hit.collider.GetComponentInParent<TeamMerger>();
+      if (!merger || merger == this) return;
+      merger.MergeConsume(this);
+    }
   }
 }
