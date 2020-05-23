@@ -19,7 +19,7 @@ public class Team : MonoBehaviour {
     onSelected -= Unselect;
   }
 
-  void Update () {
+  void FixedUpdate () {
     if (isSelected) {
       head.transform.position += (Vector3.right * Input.GetAxis("Horizontal") +
                                   Vector3.up * Input.GetAxis("Vertical")) *
@@ -36,6 +36,7 @@ public class Team : MonoBehaviour {
     foreach (Unit u in GetComponentsInChildren<Unit>()) {
       u.isSelected = true;
     }
+    CameraControl.Instance.target = this.head.transform;
 
     if (onSelected != null) onSelected(this);
   }
