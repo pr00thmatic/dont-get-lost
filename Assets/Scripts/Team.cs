@@ -7,10 +7,16 @@ public class Team : MonoBehaviour {
 
   public bool isSelected;
   public Unit head;
+  public Unit tail;
   public float speed = 10;
 
   void OnEnable () {
     onSelected += Unselect;
+    tail = head;
+  }
+
+  void OnDisable () {
+    onSelected -= Unselect;
   }
 
   void Update () {
