@@ -11,6 +11,6 @@ public class DisobedientRotation : MonoBehaviour {
   #endif
 
   void Update () {
-    transform.forward = -Vector3.forward;
+    transform.forward = Vector3.up;
   }
 }

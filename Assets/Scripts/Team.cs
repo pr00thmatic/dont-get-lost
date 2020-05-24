@@ -21,9 +21,9 @@ public class Team : MonoBehaviour {
 
   void FixedUpdate () {
     if (isSelected) {
-      head.transform.position += (Vector3.right * Input.GetAxis("Horizontal") +
-                                  Vector3.up * Input.GetAxis("Vertical")) *
-        speed * Time.deltaTime;
+      head.agent.Move((Vector3.right * Input.GetAxis("Horizontal") +
+                       Vector3.forward * Input.GetAxis("Vertical")) *
+                      speed * Time.deltaTime);
     }
   }
 
