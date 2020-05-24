@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefabs/Map pieces/medio3.prefab.meta
 guid: 807b1cd72ff4e44488673e7b039e2838
 PrefabImporter:
+=======
+guid: aa4607a346a576f418348733e7603d96
+folderAsset: yes
+DefaultImporter:
+>>>>>>> unstable:Assets/Editor.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
