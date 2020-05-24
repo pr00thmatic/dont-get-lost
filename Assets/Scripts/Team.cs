@@ -19,11 +19,13 @@ public class Team : MonoBehaviour {
     onSelected -= Unselect;
   }
 
-  void Update () {
-    if (isSelected) {
-      head.transform.position += (Vector3.right * Input.GetAxis("Horizontal") +
-                                  Vector3.up * Input.GetAxis("Vertical")) *
-        speed * Time.deltaTime;
+  void FixedUpdate () {
+    Vector3 delta = (Vector3.right * Input.GetAxis("Horizontal") +
+                     Vector3.forward * Input.GetAxis("Vertical")) *
+      speed * Time.deltaTime;
+
+    if (isSelected && delta != Vector3.zero) {
+      head.agent.Move(delta);
     }
   }
 
@@ -36,6 +38,7 @@ public class Team : MonoBehaviour {
     foreach (Unit u in GetComponentsInChildren<Unit>()) {
       u.isSelected = true;
     }
+    CameraControl.Instance.target = this.head.transform;
 
     if (onSelected != null) onSelected(this);
   }

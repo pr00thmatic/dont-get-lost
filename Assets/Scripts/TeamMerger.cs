@@ -9,7 +9,7 @@ public class TeamMerger : MonoBehaviour {
   public Team team;
 
   void Start () {
-    floor = new Plane(-Vector3.forward, connector.transform.position);
+    floor = new Plane(Vector3.up, connector.transform.position);
   }
 
   void OnMouseDown () {
@@ -26,7 +26,7 @@ public class TeamMerger : MonoBehaviour {
       connector.size = new Vector2(relativeHitPoint.magnitude /
                                    connector.transform.lossyScale.x, 0.16f);
       connector.transform.parent.rotation =
-        Quaternion.LookRotation(relativeHitPoint, -Vector3.forward);
+        Quaternion.LookRotation(relativeHitPoint, Vector3.up);
     }
 
     if (!Input.GetMouseButton(0) && isDragging) {
@@ -36,7 +36,7 @@ public class TeamMerger : MonoBehaviour {
   }
 
   void OnDestroy () {
-    Destroy(team);
+    Destroy(team.gameObject);
   }
 
   public void MergeConsume (TeamMerger toConsume) {
