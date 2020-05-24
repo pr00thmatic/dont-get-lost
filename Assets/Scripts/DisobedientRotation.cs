@@ -6,11 +6,11 @@ using System.Collections.Generic;
 public class DisobedientRotation : MonoBehaviour {
   public SpriteRenderer r;
 
-  #if !UNITY_EDITOR
-  void Start () {
-    Destroy(this);
-  }
-  #endif
+  // #if !UNITY_EDITOR
+  // void Start () {
+  //   Destroy(this);
+  // }
+  // #endif
 
   void Update () {
     transform.forward = Vector3.up;
