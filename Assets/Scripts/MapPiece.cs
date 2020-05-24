@@ -11,7 +11,7 @@ public class MapPiece : MonoBehaviour {
     Shuffle();
   }
 
-  void Shuffle () {
+  public void Shuffle () {
     current = transform.GetChild(0).gameObject;
     Destroy(current.gameObject);
     current = Instantiate(possible[Random.Range(0,possible.Count)]);
