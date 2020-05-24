@@ -11,7 +11,7 @@ public class UnitAttack : MonoBehaviour {
   }
 
   void OnTriggerEnter (Collider c) {
-    Attackable attackable = c.GetComponent<Attackable>();
+    Attackable attackable = c.GetComponentInParent<Attackable>();
     if (attackable) {
       GetComponentInParent<TeamAttack>().RetroactiveAttack(attackable);
     }

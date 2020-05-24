@@ -36,7 +36,7 @@ public class TeamMerger : MonoBehaviour {
   }
 
   void OnDestroy () {
-    Destroy(team);
+    Destroy(team.gameObject);
   }
 
   public void MergeConsume (TeamMerger toConsume) {
