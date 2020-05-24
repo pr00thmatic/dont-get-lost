@@ -20,10 +20,12 @@ public class Team : MonoBehaviour {
   }
 
   void FixedUpdate () {
-    if (isSelected) {
-      head.agent.Move((Vector3.right * Input.GetAxis("Horizontal") +
-                       Vector3.forward * Input.GetAxis("Vertical")) *
-                      speed * Time.deltaTime);
+    Vector3 delta = (Vector3.right * Input.GetAxis("Horizontal") +
+                     Vector3.forward * Input.GetAxis("Vertical")) *
+      speed * Time.deltaTime;
+
+    if (isSelected && delta != Vector3.zero) {
+      head.agent.Move(delta);
     }
   }
 
