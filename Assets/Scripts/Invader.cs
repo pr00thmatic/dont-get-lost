@@ -14,6 +14,7 @@ public class Invader : MonoBehaviour
         una variable: "sigue dispuesto a invadir?"
         Cuando decide invadir, su agente debería ir al castillo
         mediante agent.SetDestination(Vector3.zero);
+       // vector magico -24,1,25
     **/
     //cada vez que el enemigo decide no atacar su rabia crece x 1.666 veces.
     const float angerMultiplier = 1.6666f;
@@ -49,6 +50,9 @@ public class Invader : MonoBehaviour
     Vector2 posLast;
     [SerializeField]
     Vector2 posCurrent;
+    //para el mapa de prueba numeros magicos
+    const float castleX = -24f;
+    const float castleY = 25f;
 
     System.Random rnd;
 
@@ -61,7 +65,7 @@ public class Invader : MonoBehaviour
         isAlive = true;
         Timer();
         posLast = new Vector2(posCurrent.x, posCurrent.y);
-        posCurrent = new Vector2(transform.position.x, transform.position.y);
+        posCurrent = new Vector2(transform.position.x, transform.position.z);
         
     }
 
@@ -120,9 +124,13 @@ public class Invader : MonoBehaviour
 
     void GoingToCastle()
     {
-        agent.SetDestination(Vector3.zero);
-        
-        
+        Vector3 castleCoords;
+        castleCoords.x = castleX;
+        castleCoords.y = 1;
+        castleCoords.z = castleY;
+        //agent.SetDestination(Vector3.zero);
+        agent.SetDestination(castleCoords);
+
     }
 
     void RotationOverwrite()
@@ -130,15 +138,15 @@ public class Invader : MonoBehaviour
         posLast.x = posCurrent.x;
         posLast.y = posCurrent.y;
         posCurrent.x = transform.position.x;
-        posCurrent.y = transform.position.y;
+        posCurrent.y = transform.position.z;
         posCurrent = new Vector2(transform.position.x, transform.position.y);
         if (posCurrent.x < 0)
         {
-            this.transform.rotation = Quaternion.Euler(0, 0, 0);
+            this.transform.rotation = Quaternion.Euler(90, 0, 0);
         }
         else if (posCurrent.x > 0)
         {
-            this.transform.rotation = Quaternion.Euler(0, 180, 0);
+            this.transform.rotation = Quaternion.Euler(90, 180, 0);
         }
         
      //if (posCurrent.x > posLast.x)
