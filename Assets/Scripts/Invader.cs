@@ -28,15 +28,27 @@ public class Invader : MonoBehaviour
 
     public int seed;
 
+    [SerializeField]
     float intervalTime;
     float startTime;
+    [SerializeField]
     float currentTime;
     int cmins;
     float csecs;
 
+    [SerializeField]
+    int rNum;
+    [SerializeField]
+    int compare;
+
     //bools
     bool goInvade;
     public bool isAlive;
+
+    [SerializeField]
+    Vector2 posLast;
+    [SerializeField]
+    Vector2 posCurrent;
 
     System.Random rnd;
 
@@ -46,12 +58,18 @@ public class Invader : MonoBehaviour
         startTime = Time.time;
         intervalTime = decideTime + startTime;
         //currentTime = Time.time - startTime;
+        isAlive = true;
         Timer();
+        posLast = new Vector2(posCurrent.x, posCurrent.y);
+        posCurrent = new Vector2(transform.position.x, transform.position.y);
+        
     }
 
     private void Update()
     {
         Timer();
+        DoInvade();
+        RotationOverwrite();
     }
 
     private void DisplayTime()
@@ -77,8 +95,8 @@ public class Invader : MonoBehaviour
 
             //tengo ganas de atacar?
             // numero del 1 al 100
-            int rNum = rnd.Next(0, 101);
-            int compare = (int)(probabilityOfInvation * 100f);
+             rNum = rnd.Next(0, 101);
+             compare = (int)(probabilityOfInvation * 100f);
             //si las ganas de atacar (10% de prob ataque)son mayores o iguales al random (9) se da el ataque
             // si tengo 10 porciento de ataque y el numero random cae en ese 10% ataque
             //(if ((int)(probabilityOfInvation * 100) >= rnd.Next(0, 101))
@@ -92,7 +110,9 @@ public class Invader : MonoBehaviour
 
             else
             {
-                probabilityOfInvation *= angerMultiplier;
+                float tmp = probabilityOfInvation * angerMultiplier;
+                probabilityOfInvation += tmp;
+                intervalTime = currentTime + decideTime;
                 goInvade = false;
             }
         }
@@ -101,5 +121,41 @@ public class Invader : MonoBehaviour
     void GoingToCastle()
     {
         agent.SetDestination(Vector3.zero);
+        
+        
+    }
+
+    void RotationOverwrite()
+    {
+        posLast.x = posCurrent.x;
+        posLast.y = posCurrent.y;
+        posCurrent.x = transform.position.x;
+        posCurrent.y = transform.position.y;
+        posCurrent = new Vector2(transform.position.x, transform.position.y);
+        if (posCurrent.x < 0)
+        {
+            this.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (posCurrent.x > 0)
+        {
+            this.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        
+     //if (posCurrent.x > posLast.x)
+     //{
+     //    this.transform.rotation = Quaternion.Euler(0, 0, 0);
+     //}
+     //else if (posCurrent.x < posLast.x)
+     //{
+     //    this.transform.rotation = Quaternion.Euler(0, 180, 0);
+     //}
+     //else if (posCurrent.y > posLast.y)
+     //{
+     //   this.transform.rotation = Quaternion.Euler(0, 0, 90);
+     //}
+     //else if (posCurrent.y < posLast.y)
+     //{
+     //    this.transform.rotation = Quaternion.Euler(0, 0, 180);
+     //}
     }
 }

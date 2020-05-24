@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5066584462202592830
+--- !u!1001 &7285651773882455997
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,32 +10,67 @@ PrefabInstance:
     - target: {fileID: 707424271162495245, guid: 2cf1b9e1490def047953f9acfbe97e5e,
         type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.4716981
       objectReference: {fileID: 0}
     - target: {fileID: 707424271162495245, guid: 2cf1b9e1490def047953f9acfbe97e5e,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.5801887
+      value: 0.4716981
       objectReference: {fileID: 0}
     - target: {fileID: 707424271162495245, guid: 2cf1b9e1490def047953f9acfbe97e5e,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.96356344
+      value: 0.4716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013587368434546272, guid: 2cf1b9e1490def047953f9acfbe97e5e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013587368434546272, guid: 2cf1b9e1490def047953f9acfbe97e5e,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013587368434546272, guid: 2cf1b9e1490def047953f9acfbe97e5e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.764151
       objectReference: {fileID: 0}
     - target: {fileID: 1154009795676037869, guid: 2cf1b9e1490def047953f9acfbe97e5e,
         type: 3}
       propertyPath: m_Name
-      value: mid enemy
+      value: PerroEnemigo(Ez)
       objectReference: {fileID: 0}
     - target: {fileID: 1173746376965178328, guid: 2cf1b9e1490def047953f9acfbe97e5e,
         type: 3}
       propertyPath: probabilityOfInvation
-      value: 0.05
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1173746376965178328, guid: 2cf1b9e1490def047953f9acfbe97e5e,
+        type: 3}
+      propertyPath: decideTime
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900585977480575088, guid: 2cf1b9e1490def047953f9acfbe97e5e,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.7883396
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900585977480575088, guid: 2cf1b9e1490def047953f9acfbe97e5e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900585977480575088, guid: 2cf1b9e1490def047953f9acfbe97e5e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8252003938537015401, guid: 2cf1b9e1490def047953f9acfbe97e5e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.601
+      value: 4.952
       objectReference: {fileID: 0}
     - target: {fileID: 8252003938537015401, guid: 2cf1b9e1490def047953f9acfbe97e5e,
         type: 3}
@@ -45,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 8252003938537015401, guid: 2cf1b9e1490def047953f9acfbe97e5e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.587
+      value: 1.57
       objectReference: {fileID: 0}
     - target: {fileID: 8252003938537015401, guid: 2cf1b9e1490def047953f9acfbe97e5e,
         type: 3}
