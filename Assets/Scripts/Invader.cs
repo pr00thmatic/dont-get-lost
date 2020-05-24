@@ -112,14 +112,14 @@ public class Invader : MonoBehaviour
             // si tengo 10 porciento de ataque y el numero random cae en ese 10% ataque
             //(if ((int)(probabilityOfInvation * 100) >= rnd.Next(0, 101))
             //mejor a prueba de fallos
-            if (compare >= rNum)
+            if (compare >= rNum && !goInvade)
             {
                 //Attack!!!
                 goInvade = true;
                 GoingToCastle();
             }
 
-            else
+            else if (compare <= rNum)
             {
                 float tmp = probabilityOfInvation * angerMultiplier;
                 probabilityOfInvation += tmp;
