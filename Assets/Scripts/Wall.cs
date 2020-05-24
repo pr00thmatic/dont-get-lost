@@ -12,8 +12,8 @@ public class Wall : MonoBehaviour {
   void Update () {
     r.size = new Vector2(Mathf.Abs(a.position.x - b.position.x) * 0.16f,
                          Mathf.Abs(a.position.z - b.position.z) * 0.16f);
-    // r.size = new Vector2(Mathf.Round(r.size.x * 100) / 100,
-    //                      Mathf.Round(r.size.y * 100) / 100);
+    r.size *= 100;
+    r.size = (new Vector2(r.size.x / 16, r.size.y / 16) * 16) / 100;
     c.size = r.size / 0.16f / c.transform.localScale.x;
     r.transform.position = (a.position + b.position) / 2f;
   }
