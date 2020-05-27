@@ -7,7 +7,7 @@ public class UnitAttack : MonoBehaviour {
   public Collider c;
   public bool enemy;
 
-  public virtual void Attack () {
+  public void Attack () {
     StartCoroutine(_Attack());
   }
 
